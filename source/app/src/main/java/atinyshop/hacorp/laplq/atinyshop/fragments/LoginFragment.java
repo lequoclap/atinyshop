@@ -1,4 +1,4 @@
-package atinyshop.hacorp.laplq.atinyshop;
+package atinyshop.hacorp.laplq.atinyshop.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,15 +19,20 @@ import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.facebook.login.widget.ProfilePictureView;
+
+import atinyshop.hacorp.laplq.atinyshop.LoginActivity;
+import atinyshop.hacorp.laplq.atinyshop.R;
 
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainFragment extends Fragment {
+public class LoginFragment extends Fragment {
 
     private CallbackManager callbackManager;
     private TextView textView;
+    private ProfilePictureView profilePictureView;
     private Context ctx;
     private AccessTokenTracker accessTokenTracker;
     private ProfileTracker profileTracker;
@@ -38,6 +43,9 @@ public class MainFragment extends Fragment {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             displayMessage(profile);
+            profilePictureView.setProfileId(profile.getId());
+
+
             Intent intent = new Intent(getActivity(),LoginActivity.class);
             startActivity(intent);
 
@@ -54,7 +62,7 @@ public class MainFragment extends Fragment {
         }
     };
 
-    public MainFragment() {
+    public LoginFragment() {
 
     }
 
@@ -87,7 +95,7 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
     @Override
@@ -95,6 +103,7 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         LoginButton loginButton = (LoginButton) view.findViewById(R.id.login_button);
         textView = (TextView) view.findViewById(R.id.textView);
+        profilePictureView = (ProfilePictureView)view.findViewById(R.id.userImage);
 
         loginButton.setReadPermissions("user_friends");
         loginButton.setFragment(this);

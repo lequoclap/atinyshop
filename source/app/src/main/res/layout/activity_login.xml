@@ -1,16 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="atinyshop.hacorp.laplq.atinyshop.LoginActivity">
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
 
 
     <com.rey.material.widget.Button
-        style="@style/Material.Drawable.Ripple.Wave"
+        style="@style/Material.Drawable.Ripple.Touch"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="BUTTON"
@@ -23,16 +21,27 @@
         style="@style/Material.Widget.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:rd_enable="true"
         app:fab_backgroundColor="@color/background_floating_material_dark"
-        android:layout_alignParentStart="true"
         android:id="@+id/button_bt_float_wave"
         />
 
     <com.rey.material.widget.FloatingActionButton
+        style="@style/Material.Widget.FloatingActionButton"
         android:id="@+id/fab_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:v_styleId="@array/fab_line"/>
 
-</RelativeLayout>
+        />
+
+    <com.rey.material.widget.FloatingActionButton
+        style="@style/Material.Widget.FloatingActionButton"
+        android:id="@+id/fab_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_iconSrc="@drawable/ic_done_white_24dp"
+
+        />
+
+
+
+</LinearLayout>
